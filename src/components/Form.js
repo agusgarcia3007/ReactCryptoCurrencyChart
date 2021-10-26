@@ -31,10 +31,14 @@ const Form = ({setData, data}) => {
     const [error, setError] = useState(false);
 
     const exchange = [
-        {code: 'USD', name:'american dolar'},
-        {code: 'EUR', name:'european euro'},
-        {code: 'GBP', name:'brtish pound'},
-        {code: 'ARS', name:'argentinian peso'}
+        {code: 'USD', name:'USD'},
+        {code: 'EUR', name:'EUR'},
+        {code: 'GBP', name:'GBP'},
+        {code: 'ARS', name:'ARS'},
+        {code: 'MXN', name:'MXN'},
+        {code: 'BRL', name:'R$S'},
+        {code: 'JPY', name:'JPY'},
+        {code: 'AUD', name:'AUD'}
     ]
 
     //custom hook useCurrency
