@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import useCurrency from '../hooks/useCurrency';
 
 const Button = styled.input `
     margin-top:20px;
@@ -20,9 +21,21 @@ const Button = styled.input `
 `
 
 const Form = () => {
+
+    const exchange = [
+        {code: 'USD', name:'american dolar'},
+        {code: 'EUR', name:'european euro'},
+        {code: 'GBP', name:'brtish pounds'},
+        {code: 'ARS', name:'argentinian pesos'}
+    ]
+
+    //custom hook
+    const [currency, Select, setState] = useCurrency("Choose yout Currency", '', exchange);
+
     return ( 
         <form >
 
+            <Select />
 
 
             <Button 

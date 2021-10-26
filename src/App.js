@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import image from './cryptocurrency.png';
+import image from './assets/cryptocurrency.png';
 import Form from './components/Form';
 
 
