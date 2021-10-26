@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from '@emotion/styled';
 import image from './assets/cryptocurrency.png';
 import Form from './components/Form';
+import axios from 'axios';
+
 
 
 
@@ -12,7 +14,6 @@ const Container = styled.div `
     display:grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap:2rem;
-
   }
 `
 const Image = styled.img `
@@ -40,6 +41,36 @@ const Heading = styled.h1 `
 
 
 const App = () => {
+
+
+  const [data, setData] = useState({
+      coin:'',
+      cryptoCurrency:''
+  })
+  const [resp, setResp] = useState({});
+
+  const {coin, cryptoCurrency} = data;
+
+  useEffect(()=>{
+
+    //fetch Api to get prices
+    const fetchApiPrice = async ()=>{
+
+    if(coin === '') return;
+
+      const url =`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoCurrency}&tsyms=${coin}`
+      const result = await axios.get(url);
+      const x = result.data.DISPLAY[cryptoCurrency][coin];
+
+      setResp(x);
+      
+    }
+    fetchApiPrice();
+
+  },[coin, cryptoCurrency])
+
+  
+
   return ( 
     <Container>
       <div>
@@ -54,7 +85,8 @@ const App = () => {
         </Heading>
 
           <Form 
-          
+            setData={setData}
+            data={data}
           />
       </div>
     </Container>
