@@ -25,12 +25,12 @@ const Form = () => {
     const exchange = [
         {code: 'USD', name:'american dolar'},
         {code: 'EUR', name:'european euro'},
-        {code: 'GBP', name:'brtish pounds'},
-        {code: 'ARS', name:'argentinian pesos'}
+        {code: 'GBP', name:'brtish pound'},
+        {code: 'ARS', name:'argentinian peso'}
     ]
 
     //custom hook
-    const [currency, Select, setState] = useCurrency("Choose yout Currency", '', exchange);
+    const [currency, Select, setState] = useCurrency("Choose your Currency", '', exchange);
 
     return ( 
         <form >
