@@ -11,6 +11,7 @@ import axios from 'axios';
 const Container = styled.div `
   max-width:900px;
   margin: 0 auto;
+  padding:15px;
   @media(min-width:992px){
     display:grid;
     grid-template-columns: repeat(2, 1fr);
