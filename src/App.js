@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import styled from '@emotion/styled';
 import image from './assets/cryptocurrency.png';
 import Form from './components/Form';
+import Price from './components/Price';
 import axios from 'axios';
 
 
@@ -45,11 +46,13 @@ const App = () => {
 
   const [data, setData] = useState({
       coin:'',
-      cryptoCurrency:''
-  })
+      cryptoCurrency:'',
+    })
+  
+  const {coin, cryptoCurrency} = data;
+  
   const [resp, setResp] = useState({});
 
-  const {coin, cryptoCurrency} = data;
 
   useEffect(()=>{
 
@@ -81,13 +84,18 @@ const App = () => {
       </div>
       <div>
         <Heading>
-          Crypto Currency Chart
+          Crypto Currency Converter
         </Heading>
 
           <Form 
             setData={setData}
             data={data}
           />
+
+          <Price 
+            resp={resp}
+          />
+
       </div>
     </Container>
    );

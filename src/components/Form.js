@@ -4,6 +4,7 @@ import useCurrency from '../hooks/useCurrency';
 import useCrypto from '../hooks/useCrypto';
 import Error from './Error';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 const Button = styled.input `
     margin-top:20px;
@@ -87,6 +88,11 @@ const Form = ({setData, data}) => {
             />
         </form>
      );
+}
+
+Form.propTypes={
+    data:PropTypes.object.isRequired,
+    setData:PropTypes.func.isRequired
 }
  
 export default Form;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 
 const P = styled.p `
@@ -17,6 +18,10 @@ const Error = ({message}) => {
     return ( 
         <P>{message}</P>
      );
+}
+
+Error.propTypes={
+    message:PropTypes.string.isRequired
 }
  
 export default Error;
